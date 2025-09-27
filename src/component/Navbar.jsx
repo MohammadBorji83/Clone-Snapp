@@ -25,9 +25,14 @@ function Navbar() {
     "اسنپ پرو",
     "سرمایه‌گذاری",
   ];
+  const abots =[
+    "فرصت های شغلی",
+    "درباره ما",
+    "تماس با ما",
+  ]
 
   return (
-    <nav className="sticky top-0 flex items-center bg-white px-10 my-4 h-16 shadow-sm">
+    <nav className="sticky top-0 flex items-center bg-white px-10 h-20 shadow-sm">
       {/* لوگو */}
       <div className="w-40 h-10 mr-36">
         <img src={Logo} alt="لوگو" className="w-full h-full object-cover" />
@@ -36,17 +41,30 @@ function Navbar() {
       {/* منوی دسکتاپ */}
       <div className="hidden md:flex">
         <ul className="flex flex-row-reverse gap-9 items-center">
-          
-          <li><a href="#">ثبت نام راننده اسنپ</a></li>
+          <li className="relative group">
+            <a href="#" className="flex items-center gap-1">
+             درباره اسنپ<HiChevronDown />
+            </a>
+            <ul className="absolute right-0 mt-2 w-35 bg-white shadow-lg rounded-lg p-2 text-sm opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
+              {abots.map((item, index) => (
+                <li
+                  key={index}
+                  className="px-3 py-2 hover:bg-gray-100 cursor-pointer"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </li>
+           <li><a href="#">بلاگ</a></li>
           <li><a href="#">باشگاه رانندگان</a></li>
           <li><a href="#">پنل سازمانی</a></li>
-          <li><a href="#">بلاگ</a></li>
-          <li><a href="#">درباره اسنپ</a></li>
+          <li><a href="#">ثبت نام راننده اسنپ</a></li> 
           <li className="relative group">
             <a href="#" className="flex items-center gap-1">
              سوپر اپ اسنپ <HiChevronDown />
             </a>
-            <ul className="absolute right-0 mt-2 w-56 bg-white shadow-lg rounded-lg p-2 text-sm opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
+            <ul className="absolute right-0 mt-2 w-35 bg-white shadow-lg rounded-lg p-2 text-sm opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
               {superAppItems.map((item, index) => (
                 <li
                   key={index}
@@ -81,12 +99,7 @@ function Navbar() {
         </div>
 
         <ul className="flex flex-col p-4 space-y-3">
-          <li><a href="#">درباره اسنپ</a></li>
-          <li><a href="#">ثبت نام راننده</a></li>
-          <li><a href="#">باشگاه رانندگان</a></li>
-          <li><a href="#">پنل سازمانی</a></li>
-          <li><a href="#">بلاگ</a></li>
-          <li>
+           <li>
             <details>
               <summary className="cursor-pointer">سوپر اپ اسنپ</summary>
               <ul className="pl-4 mt-2 space-y-2">
@@ -95,6 +108,25 @@ function Navbar() {
                 ))}
               </ul>
             </details>
+          </li>
+          <li><a href="#">ثبت نام راننده</a></li>
+          <li><a href="#">باشگاه رانندگان</a></li>
+          <li><a href="#">پنل سازمانی</a></li>
+          <li><a href="#">بلاگ</a></li>
+          <li className="relative group">
+            <a href="#" className="flex items-center gap-1">
+             درباره اسنپ<HiChevronDown />
+            </a>
+            <ul className="absolute right-0 mt-2 w-35 bg-gray-400 shadow-lg rounded-lg p-2 text-sm opacity-0 invisible group-hover:opacity-100 group-hover:visible transition">
+              {abots.map((item, index) => (
+                <li
+                  key={index}
+                  className="px-3 py-2 hover:bg-gray-100 cursor-pointer"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
           </li>
         </ul>
       </div>
